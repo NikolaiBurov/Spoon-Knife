@@ -1,0 +1,69 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using MetroFramework.Forms;
+using static System.Collections.Specialized.BitVector32;
+using System.IO;
+
+
+namespace Page_reminder
+{
+    public partial class Form1 : MetroFramework.Forms.MetroForm
+    {
+       
+
+        public Form1()
+        {
+            InitializeComponent();
+              MaximizeBox = false;
+        }
+
+        private void metroTextBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+
+            }
+            catch { }
+
+        }
+            
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+
+            metroTextBox1.Text = File.ReadAllText(@"C: \\demo\\demo.txt");
+            
+            this.metroButton2.Text = metroButton2.Text;
+            MessageBox.Show(this, "You are in page  ");
+
+        }
+
+        private void metroTextBox2_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+            
+        {
+            new FileInfo((@"C: \\demo\\demo.txt")).Directory.Create();
+            TextWriter txt = new StreamWriter("C:\\demo\\demo.txt");
+            txt.Write(metroTextBox2.Text);
+            txt.Close();
+
+            int g = Convert.ToInt32(Console.ReadLine());
+            MessageBox.Show(this, "Saved");
+        }
+
+       
+    }
+}
